@@ -1,0 +1,11 @@
+# Original working files and reference material stay local.
+/作品集文件/
+/作品集-李思萱.pdf
+/Example/
+/assets/covers/
+/assets/portfolio-hi/
+
+# Local tooling and operating system files.
+.DS_Store
+Thumbs.db
+.vscode/

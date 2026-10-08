@@ -5,7 +5,7 @@
   const slides = [...detailRoot.querySelectorAll('.spread')];
   const images = slides.map(slide => slide.querySelector('img'));
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const originalAsset = page => `../assets/figma-projects/${page}`;
+  const originalAsset = page => page === 'blue-algorithm.jpg' ? '../assets/work-covers/blue-algorithm.jpg' : `../assets/figma-projects/${page}`;
   const highResolutionAsset = page => {
     const a = /^A(\d+)\./.exec(page);
     const b = /^B(\d+)\./.exec(page);

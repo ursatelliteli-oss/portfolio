@@ -17,7 +17,7 @@ const files = [
   '李思萱CV.docx',
   'assets/sixuan-portrait.jpg',
 ];
-const directories = ['projects', 'assets/figma-projects'];
+const directories = ['projects', 'assets/figma-projects', 'assets/work-covers'];
 
 function copyDirectory(source, destination) {
   fs.mkdirSync(destination, { recursive: true });

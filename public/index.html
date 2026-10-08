@@ -73,7 +73,7 @@
     </div></section>
     <section class="works" id="works"><div class="wrap">
       <div class="section-kicker reveal">02 — Projects from my practice</div>
-      <div class="works-head reveal"><h2>Selected <em>work.</em></h2><div class="works-head-tools"><span class="work-count">2023 — 2026</span><button class="micro-button works-all" type="button"><span class="all-label">View all</span><span class="arrow">↓</span></button></div></div>
+      <div class="works-head reveal"><h2 aria-live="polite">Selected <em>work.</em></h2><div class="works-head-tools"><span class="work-count">2023 — 2026</span><button class="micro-button works-all" type="button"><span class="all-label">View all</span><span class="arrow">↓</span></button></div></div>
       <div class="filters reveal" role="group" aria-label="Filter projects"><button class="filter active" data-filter="featured">Selected</button><button class="filter" data-filter="all">All</button><button class="filter" data-filter="interaction">Interaction</button><button class="filter" data-filter="product">Product</button><button class="filter" data-filter="research">Research</button></div>
       <div class="masonry">
         <a class="project reveal" href="projects/kidulting.html" data-category="interaction research" data-featured="true" aria-label="Open Kidulting project"><div class="project-image"><img src="assets/work-covers/kidulting.jpg" alt="Kidulting project cover" loading="lazy"></div><div class="project-info"><div><h3 class="priority-title">Kidulting</h3><p>Interactive narrative · Game experience</p></div></div></a>
@@ -111,9 +111,12 @@
     const topButton=document.querySelector('.to-top');
     window.addEventListener('scroll',()=>topButton.classList.toggle('visible',window.scrollY>520),{passive:true});
     const filters = document.querySelectorAll('.filter');
+    const workHeading = document.querySelector('.works-head h2');
+    const workHeadingLabels = {featured: 'Selected', all: 'All', interaction: 'Interaction', product: 'Product', research: 'Research'};
     filters.forEach(button => button.addEventListener('click', () => {
       filters.forEach(item => item.classList.toggle('active', item === button));
       const type = button.dataset.filter;
+      workHeading.innerHTML = `${workHeadingLabels[type]} <em>work.</em>`;
       document.querySelectorAll('.project').forEach(card => { const show = type === 'all' || (type === 'featured' ? card.dataset.featured === 'true' : card.dataset.category.split(' ').includes(type)); card.hidden = !show; });
     }));
     document.querySelectorAll('.project:not([data-featured="true"])').forEach(card => card.hidden = true);

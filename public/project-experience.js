@@ -7,6 +7,7 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const originalAsset = page => page === 'blue-algorithm.jpg' ? '../assets/work-covers/blue-algorithm.jpg' : `../assets/figma-projects/${page}`;
   const highResolutionAsset = page => {
+    if (/^[ABCD]\d+\./.test(page)) return null;
     const a = /^A(\d+)\./.exec(page);
     const b = /^B(\d+)\./.exec(page);
     const d = /^D(\d+)\./.exec(page);
@@ -17,8 +18,6 @@
       'A11.jpg': 'A11.png',
       'A12.png': 'A12.png',
       'OW1.jpg': 'portfolio-44.webp',
-      'ECO01.jpg': 'portfolio-48.webp',
-      'ECO02.jpg': 'portfolio-49.webp',
       'AEGIS.jpg': 'portfolio-50.webp',
       'free-harness-detail.png': 'free-harness.png',
       'longchi-umbrella-detail.png': 'longchi.png',
